@@ -39,11 +39,11 @@ def makeResponse(req):
     for i in range(0,30):
          if date in weather[i]['dt_txt']:
              condition= weather[i]['weather'][0]['description']
-	         break
+	         break      
     speech = "The forcast for"+city+ "for "+date+" is "+condition
     return {
     "speech": speech,
-    "displayText": speech, 
+    "displayText": speech,
     "source": "apiai-weather-webhook"
      }
 
@@ -51,5 +51,3 @@ if __name__ == '__main__':
       port = int(os.getenv('PORT', 5000))
       print("Starting app on port %d" % port)
       app.run(debug=False, port=port, host='0.0.0.0')
-
-
