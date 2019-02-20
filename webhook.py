@@ -17,15 +17,13 @@ app = Flask(__name__)
 
 def webhook():
    req = request.get_json(silent=True, force=True)
-   # print(json.dumps/req, indent=4)
+   print(json.dumps(req, indent=4))
 
    res = makeResponse(req)
    res = json.dumps(res, indent=4)
    r = make_response(res)
    r.headers['Content-Type'] = 'application/json'
    return r
-
-
 
 
 def makeResponse(req):
@@ -38,16 +36,16 @@ def makeResponse(req):
     weather=json_object['list']
     for i in range(0,30):
          if date in weather[i]['dt_txt']:
-             condition= weather[i]['weather'][0]['description']
-         break
+            condition= weather[i]['weather'][0]['description']
+            break
 	speech = "The forcast for"+city+ "for "+date+" is "+condition
     return {
     "speech": speech,
     "displayText": speech,
     "source": "apiai-weather-webhook"
-     }
+    }
 
 if __name__ == '__main__':
-      port = int(os.getenv('PORT', 5000))
-      print("Starting app on port %d" % port)
-      app.run(debug=False, port=port, host='0.0.0.0')
+     port = int(os.getenv('PORT', 5000))
+     print("Starting app on port %d" % port)
+     app.run(debug=False, port=port, host='0.0.0.0')
