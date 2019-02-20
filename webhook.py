@@ -39,6 +39,7 @@ def makeResponse(req):
     for i in range(0,30):
           if date in weather[i]['dt_txt']:
               condition= weather[i]['weather'][0]['description']
+			  break
 
 
     speech = "The forcast for"+city+ "for "+date+" is "+condition
