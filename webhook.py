@@ -2,9 +2,11 @@
 
 import json
 import os
+import requests
 
 from flask import Flask
 from flask import request
+
 from flask import make_response
 
 # Flas app should start in global layout
