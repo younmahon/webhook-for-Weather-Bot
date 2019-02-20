@@ -4,7 +4,7 @@ import json
 import os
 
 from flask import Flask
-from flask import request
+from flask import requests
 from flask import make_response
 
 # Flas app should start in global layout
