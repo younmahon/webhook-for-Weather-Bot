@@ -33,8 +33,8 @@ def makeResponse(req):
     #        break
     #speech = "The forcast for"+city+ "for "+date+" is "+condition
     return {
-    "speech": "speech",
-    "displayText": "speech",
+    "speech": "this thing",
+    "displayText": "or this one",
     "source": "apiai-weather-webhook"
     }
 if __name__ == '__main__':
