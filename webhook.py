@@ -31,12 +31,13 @@ def makeResponse(req):
          if date in weather[i]['dt_txt']:
             condition= weather[i]['weather'][0]['description']
             break
-    speech = "The forcast for"+city+ "for "+date+" is "+condition
+    #speech = "The forcast for"+city+ "for "+date+" is "+condition
+    speech = "waaa hiaa waaa hiaaa"
     return {
-    "speech": "speach",
+    "speech": speech,
 
-    
-    "displayText": "speach",
+
+    "displayText": speech,
     "source": "apiai-weather-webhook"
     }
 if __name__ == '__main__':
