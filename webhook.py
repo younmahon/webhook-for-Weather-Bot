@@ -29,7 +29,7 @@ def makeResponse(req):
     weather=json_object['list']
     for i in range(0,30):
         print(i)
-         if date in weather[i]['dt_txt']:
+        if date in weather[i]['dt_txt']:
             condition= weather[i]['weather'][0]['description']
             break
     speech = "The forcast for"+city+ "for "+date+" is "+condition
