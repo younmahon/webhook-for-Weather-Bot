@@ -1,20 +1,3 @@
-Skip to content
-
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- @younmahon Sign out
-1
-0 22 ashokpsg/apiai-weather-webhook-sample
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights
-apiai-weather-webhook-sample/app.py
-786c034  on Jul 21, 2016
-@ashokpsg ashokpsg Update app.py
-
-127 lines (94 sloc)  2.97 KB
 #!/usr/bin/env python
 
 import urllib
@@ -141,16 +124,3 @@ if __name__ == '__main__':
     print "Starting app on port %d" % port
 
     app.run(debug=False, port=port, host='0.0.0.0')
-© 2019 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Press h to open a hovercard with more details.
