@@ -24,15 +24,22 @@ def makeResponse(req):
     parameters = result.get("parameters")
     city = parameters.get("geo-city")
     date = parameters.get("date")
-    r=requests.get('http://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=b6907d289e10d714a6e88b30761fae22')
-    json_object = r.json()
-    weather=json_object['list']
-    for i in range(0,30):
-        print(i)
-        if date in weather[i]['dt_txt']:
-            condition= weather[i]['weather'][0]['description']
-            break
-    speech = "The forcast for"+city+ "for "+date+" is "+condition
+    #r=requests.get('http://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=b6907d289e10d714a6e88b30761fae22')
+    #json_object = r.json()
+    api_key = "b6907d289e10d714a6e88b30761fae22"
+    base_url = "http://api.openweathermap.org/data/2.5/weather?"
+    complete_url = base_url + "appid=" + api_key + "&q=" + city
+    response1 = requests.get(complete_url)
+    x = response1.json()
+    z = x["weather"]
+    weather_description = z[0]["description"]
+    #weather=json_object['list']
+    #for i in range(0,30):
+    #    print(i)
+    #    if date in weather[i]['dt_txt']:
+    #        condition= weather[i]['weather'][0]['description']
+    #        break
+    speech = "The forcast for"+city+ "for "+date+" is "+weather_description
     return {
     "speech": speech,
     "displayText": speech,
