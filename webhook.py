@@ -30,7 +30,8 @@ def makeResponse(req):
     json_object = r.json()
     weather=json_object.get("current")
     temperature=weather.get("temp_c")
-    speech = "The forecast for"+city+" is "+temperature
+    strtemperature=str(temperature)
+    speech = "The forecast for"+city+" is "+strtemperature
     return {
     "speech": speech,
     "displayText": speech,
