@@ -27,23 +27,11 @@ def makeResponse(req):
     result = req.get("queryResult")
     parameters = result.get("parameters")
     city = parameters.get("geo-city")
-    date = parameters.get("date")
-    r=requests.get('http://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=98fe55e4c365cbd0b333744cf7db0f78')
-    condition1= "nothing else matters"
+    r=requests.get('http://api.apixu.com/v1/current.json?key=a357348be936488c820132836192703%20&q='+city+)
     json_object = r.json()
-    weather=json_object['list']
-    for i in range(0,30):
-        if date in weather[i]['dt_txt']:
-            condition1= weather[i]['weather'][0]['description']
-            break
-    condition = condition1
-    client = plivo.RestClient()
-    response = client.messages.create(
-    src='00491728080080',
-    dst='00491728080144',
-    text='Test Message', )
-    print(response)
-    speech = "The forecast for"+city+"for "+date+" is "+condition
+    weather=json_object.get("current")
+    temperature=weather.get("temp_c")
+    speech = "The forecast for"+city+" is "+temperature
     return {
     "speech": speech,
     "displayText": speech,
