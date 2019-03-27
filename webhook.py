@@ -30,8 +30,8 @@ def makeResponse(req):
     json_object = r.json()
     weather=json_object.get("current")
     temperature=weather.get("temp_c")
-    strtemperature=str(temperature)
-    speech = "The forecast for "+city+" is "+strtemperature
+    strtemperature=str(int(temperature))
+    speech = "The forecast for "+city+" is "+strtemperature+" degrees"
     return{
   "fulfillmentText": speech,
   "fulfillmentMessages": [
