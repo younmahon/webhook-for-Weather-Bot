@@ -33,9 +33,9 @@ def makeResponse(req):
     strtemperature=str(temperature)
     speech = "The forecast for "+city+" is "+strtemperature
     return {
-    "text": speech,
-    "displayText": speech,
-    "source": "apiai-weather-webhook"
+         "speech": speech,
+         "displayText": speech,
+         "source": "apiai-weather-webhook"
     }
 
 if __name__ == '__main__':
