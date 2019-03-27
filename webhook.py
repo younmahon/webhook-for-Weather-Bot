@@ -32,11 +32,17 @@ def makeResponse(req):
     temperature=weather.get("temp_c")
     strtemperature=str(temperature)
     speech = "The forecast for "+city+" is "+strtemperature
-    return {
-         "speech": speech,
-         "displayText": speech,
-         "source": "apiai-weather-webhook"
+    return{
+  "fulfillmentText": speech,
+  "fulfillmentMessages": [
+    {
+      "text": {
+        "text": [speech]
+      }
     }
+  ],
+  "source": "<Text response>"
+}
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
