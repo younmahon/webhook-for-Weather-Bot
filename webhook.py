@@ -26,13 +26,13 @@ def makeResponse(req):
     result = req.get("queryResult")
     parameters = result.get("parameters")
     city = parameters.get("geo-city")
-    name = parameters.get("given-name")
+    name123 = parameters.get("given-name")
     r=requests.get('http://api.apixu.com/v1/current.json?key=a357348be936488c820132836192703%20&q='+city)
     json_object = r.json()
     weather=json_object.get("current")
     temperature=weather.get("temp_c")
     strtemperature=str(int(temperature))
-    speech = "Listen " +name+ ", The forecast for "+city+" is "+strtemperature+" degrees"
+    speech = "Listen " + name123 + ", The forecast for "+city+" is "+strtemperature+" degrees"
     return{
   "fulfillmentText": speech,
   "fulfillmentMessages": [
