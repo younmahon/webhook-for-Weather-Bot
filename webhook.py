@@ -2,7 +2,9 @@ import json
 import os
 import requests
 
+
 from flask import Flask
+from google.cloud import translate
 from flask import request
 from flask import make_response
 
@@ -22,6 +24,22 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
+
+def translate_text(text, target='en'):
+    translate_client = translate.client()
+    result = translate_client.translate(text, target_language=target)
+
+    print('Text: ', resulte['input'])
+    print('Translation', result['translatedText'])
+    print('Detected source lang: ', result['detectedSourceLanguage'])
+
+
+example_text = '''Hola saludos desde Colombia excellentes tutoriales me'''
+
+
+txt= translate_text(example_text)
+
+
 def makeResponse(req):
     result = req.get("queryResult")
     parameters = result.get("parameters")
@@ -32,7 +50,7 @@ def makeResponse(req):
     weather=json_object.get("current")
     temperature=weather.get("temp_c")
     strtemperature=str(int(temperature))
-    speech = "Listen " + name123 + ", The forecast for "+city+" is "+strtemperature+" degrees"
+    speech = txt+"Listen " + name123 + ", The forecast for "+city+" is "+strtemperature+" degrees"
     return{
   "fulfillmentText": speech,
   "fulfillmentMessages": [
