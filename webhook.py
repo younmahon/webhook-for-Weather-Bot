@@ -39,7 +39,7 @@ def translate_text(text, target='en'):
 example_text = '''Hola saludos desde Colombia excellentes tutoriales me'''
 
 
-txt= translate_text(example_text)
+txtt= translate_text(example_text)
 
 
 def makeResponse(req):
@@ -52,7 +52,7 @@ def makeResponse(req):
     weather=json_object.get("current")
     temperature=weather.get("temp_c")
     strtemperature=str(int(temperature))
-    speech = txt+"Listen " + name123 + ", The forecast for "+city+" is "+strtemperature+" degrees"
+    speech = txtt+"Listen " + name123 + ", The forecast for "+city+" is "+strtemperature+" degrees"
     return{
   "fulfillmentText": speech,
   "fulfillmentMessages": [
