@@ -27,19 +27,7 @@ def webhook():
     return r
 
 
-def translate_text(text, target='en'):
-    translate_client = translate.client()
-    result = translate_client.translate(text, target_language=target)
 
-    print('Text: ', resulte['input'])
-    print('Translation', result['translatedText'])
-    print('Detected source lang: ', result['detectedSourceLanguage'])
-
-
-example_text = '''Hola saludos desde Colombia excellentes tutoriales me'''
-
-
-txtt= translate_text(example_text)
 
 
 def makeResponse(req):
@@ -52,7 +40,7 @@ def makeResponse(req):
     weather=json_object.get("current")
     temperature=weather.get("temp_c")
     strtemperature=str(int(temperature))
-    speech = txtt+"Listen " + name123 + ", The forecast for "+city+" is "+strtemperature+" degrees"
+    speech = "Listen " + name123 + ", The forecast for "+city+" is "+strtemperature+" degrees"
     return{
   "fulfillmentText": speech,
   "fulfillmentMessages": [
