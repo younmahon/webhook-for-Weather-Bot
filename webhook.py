@@ -1,12 +1,12 @@
 import json
 import os
 import requests
-import google
+
 
 
 
 from flask import Flask
-from google.cloud.translate import translate
+
 from flask import request
 from flask import make_response
 
