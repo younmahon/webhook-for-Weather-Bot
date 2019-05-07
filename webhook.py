@@ -43,7 +43,7 @@ def makeResponse(req):
     temperature=weather.get("temp_c")
     strtemperature=str(int(temperature))
     # speech = "Listen " + name123 + ", The forecast for "+city+" is "+strtemperature+" degrees. Remember this quote for today : "+text1
-    speech = "Listen , The forecast for "+city+" is "+strtemperature+" degrees. "
+    speech = "The forecast for "+city +" is "+strtemperature+" degrees. "
     return{
   "fulfillmentText": speech,
   "fulfillmentMessages": [
