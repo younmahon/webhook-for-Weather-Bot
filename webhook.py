@@ -27,7 +27,7 @@ def webhook():
     return r
 
 
-speech = "Listen , The forecast for "+city+" is "+strtemperature+" degrees. "
+
 
 def makeResponse(req):
     result = req.get("queryResult")
@@ -43,7 +43,7 @@ def makeResponse(req):
     temperature=weather.get("temp_c")
     strtemperature=str(int(temperature))
     # speech = "Listen " + name123 + ", The forecast for "+city+" is "+strtemperature+" degrees. Remember this quote for today : "+text1
-    speech = "The forecast for "+city +" is "+strtemperature+" degrees. "
+    speech = "The forecast now for "+city +" is "+strtemperature+" degrees. "
     return{
   "fulfillmentText": speech,
   "fulfillmentMessages": [
