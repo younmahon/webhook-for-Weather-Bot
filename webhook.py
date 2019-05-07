@@ -27,7 +27,7 @@ def webhook():
     return r
 
 
-speech = "Listen " + name123 + ", The forecast for "+city+" is "+strtemperature+" degrees. "
+speech = "Listen , The forecast for "+city+" is "+strtemperature+" degrees. "
 
 def makeResponse(req):
     result = req.get("queryResult")
