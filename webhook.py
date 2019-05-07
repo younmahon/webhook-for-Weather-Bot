@@ -35,15 +35,15 @@ def makeResponse(req):
     city = parameters.get("geo-city")
     name123 = parameters.get("given-name")
     r=requests.get('http://api.apixu.com/v1/current.json?key=a357348be936488c820132836192703%20&q='+city)
-    txt=requests.get('https://quota.glitch.me/random')
-    json_object1 = txt.json()
-    text1= json_object1.get("quoteText")
+    #txt=requests.get('https://quota.glitch.me/random')
+    #json_object1 = txt.json()
+    #text1= json_object1.get("quoteText")
     json_object = r.json()
     weather=json_object.get("current")
     temperature=weather.get("temp_c")
     strtemperature=str(int(temperature))
     # speech = "Listen " + name123 + ", The forecast for "+city+" is "+strtemperature+" degrees. Remember this quote for today : "+text1
-
+    speech = "Listen , The forecast for "+city+" is "+strtemperature+" degrees. "
     return{
   "fulfillmentText": speech,
   "fulfillmentMessages": [
